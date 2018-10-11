@@ -1,0 +1,15 @@
+.tox
+.env
+dist/
+build/
+.venv/
+.cache/
+*.py[cod]
+*.zipapp/
+.coverage
+*.egg-info/
+__pycache__/
+.hypothesis/
+.mypy_cache/
+.pytest_cache/
+.ipynb_checkpoints/
