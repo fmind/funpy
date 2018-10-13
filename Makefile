@@ -1,3 +1,5 @@
+export PYTHONPATH=${PWD}
+
 MKFILES = $(wildcard */Makefile)
 
 .venv:
