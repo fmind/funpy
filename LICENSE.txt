@@ -1,1 +1,1 @@
-EUPL-1.2
+https://opensource.org/licenses/AGPL-3.0
