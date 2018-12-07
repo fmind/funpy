@@ -1,18 +1,17 @@
-export PYTHONPATH=${PWD}
+include */Makefile
 
-MKFILES = $(wildcard */Makefile)
+MAKEFLAGS += --silent
+MAKECONFS += $(wildcard */Makefile)
+MAKEREPOS += $(subst /,, $(dir ${MAKECONFS}))
 
 .venv:
-	python -m venv .venv --clear
+	python -m venv .venv --clear --symlinks
 
-init: .venv
-	@for MK in ${MKFILES}; do make --no-print-directory -f $$MK init-$$(dirname $$MK); done
+init:
+	@for dir in ${MAKEREPOS} ; do make init-$$dir ; done
 
 clean:
-	@for MK in ${MKFILES}; do make --no-print-directory -f $$MK clean-$$(dirname $$MK); done
+	@for dir in ${MAKEREPOS} ; do make clean-$$dir ; done
 
-commit: .venv
-	@set -e; \
-	for MK in ${MKFILES}; do make --no-print-directory -f $$MK commit-$$(dirname $$MK); done
-
-include */Makefile
+commit:
+	@for dir in ${MAKEREPOS} ; do make commit-$$dir ; done

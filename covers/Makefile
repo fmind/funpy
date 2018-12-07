@@ -1,17 +1,21 @@
-.PHONY: cover
-
 NAME = $(shell .venv/bin/python setup.py --name)
 
 init-covers: .venv
 	.venv/bin/pip install '.[covers]'
+	ln -fs 'covers/coverage.ini' '.coveragerc'
 
 clean-covers:
-	find . -name '.mypy_cache' -exec rm -fr {} +
+	rm -rf "covers/htmlcov"
+	find . -name '.coverage' -exec rm -fr {} +
 
-commit-covers: report;
+commit-covers: htmlcov
+	git add --all 'covers/htmlcov/'
 
 cover: .venv
-	.venv/bin/coverage run --rcfile="covers/coverage.ini" --source ${NAME} -m pytest --doctest-modules -q
+	.venv/bin/coverage run --source ${NAME} -m pytest -q
 
 report: .venv cover
-	.venv/bin/coverage report --rcfile="covers/coverage.ini"
+	.venv/bin/coverage report
+
+htmlcov: .venv cover
+	.venv/bin/coverage html --directory="covers/htmlcov"

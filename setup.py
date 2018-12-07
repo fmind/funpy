@@ -33,7 +33,8 @@ info = dict(
         "Programming Language :: Python :: 3",
     ],
     extras_require={
-        os.path.dirname(f): requires(f) for f in glob.glob("*/requirements.txt")
+        os.path.dirname(f): requires(f)
+        for f in glob.glob("*/requirements.txt")
     },
     python_requires=">=3",
     install_requires=requires(),
