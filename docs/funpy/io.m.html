@@ -1,0 +1,1990 @@
+<!doctype html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+    <title>funpy.io API documentation</title>
+    <meta name="description" content="Input/Output library." />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
+  
+  <style type="text/css">
+  
+* {
+  box-sizing: border-box;
+}
+/*! normalize.css v1.1.1 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Prevent system color scheme's background color being used in Firefox, IE,
+ *    and Opera.
+ * 2. Prevent system color scheme's text color being used in Firefox, IE, and
+ *    Opera.
+ * 3. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 4. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    background: #fff; /* 1 */
+    color: #000; /* 2 */
+    font-size: 100%; /* 3 */
+    -webkit-text-size-adjust: 100%; /* 4 */
+    -ms-text-size-adjust: 100%; /* 4 */
+}
+
+/**
+ * Address `font-family` inconsistency between `textarea` and other form
+ * elements.
+ */
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+}
+
+/**
+ * Address margins handled incorrectly in IE 6/7.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/**
+ * Address font sizes and margins set differently in IE 6/7.
+ * Address font sizes within `section` and `article` in Firefox 4+, Safari 5,
+ * and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+blockquote {
+    margin: 1em 40px;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ * Known issue: no IE 6/7 normalization.
+ */
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 6/7/8/9.
+ */
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+p,
+pre {
+    margin: 1em 0;
+}
+
+/**
+ * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/**
+ * Address CSS quotes not supported in IE 6/7.
+ */
+
+q {
+    quotes: none;
+}
+
+/**
+ * Address `quotes` property not supported in Safari 4.
+ */
+
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+dl,
+menu,
+ol,
+ul {
+    margin: 1em 0;
+}
+
+dd {
+    margin: 0 0 0 40px;
+}
+
+/**
+ * Address paddings set differently in IE 6/7.
+ */
+
+menu,
+ol,
+ul {
+    padding: 0 0 0 40px;
+}
+
+/**
+ * Correct list images handled incorrectly in IE 7.
+ */
+
+nav ul,
+nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/**
+ * Correct margin displayed oddly in IE 6/7.
+ */
+
+form {
+    margin: 0;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct color not being inherited in IE 6/7/8/9.
+ * 2. Correct text not wrapping in Firefox 3.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0;
+    white-space: normal; /* 2 */
+    *margin-left: -7px; /* 3 */
+}
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+    *overflow: visible;  /* 4 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to content-box in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    *height: 13px; /* 3 */
+    *width: 13px; /* 3 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 3+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+  </style>
+
+  <style type="text/css">
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+  body {
+    background: #fff;
+    font-family: "Source Sans Pro", "Helvetica Neueue", Helvetica, sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6em;
+  }
+  #content {
+    width: 70%;
+    max-width: 850px;
+    float: left;
+    padding: 30px 60px;
+    border-left: 1px solid #ddd;
+  }
+  #sidebar {
+    width: 25%;
+    float: left;
+    padding: 30px;
+    overflow: hidden;
+  }
+  #nav {
+    font-size: 130%;
+    margin: 0 0 15px 0;
+  }
+
+  #top {
+    display: block;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    font-size: .85em;
+    text-transform: uppercase;
+  }
+
+  #footer {
+    font-size: .75em;
+    padding: 5px 30px;
+    border-top: 1px solid #ddd;
+    text-align: right;
+  }
+    #footer p {
+      margin: 0 0 0 30px;
+      display: inline-block;
+    }
+
+  h1, h2, h3, h4, h5 {
+    font-weight: 300;
+  }
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.1em;
+    margin: 0 0 .50em 0;
+  }
+
+  h2 {
+    font-size: 1.75em;
+    margin: 1em 0 .50em 0;
+  }
+
+  h3 {
+    margin: 25px 0 10px 0;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 105%;
+  }
+
+  a {
+    color: #058;
+    text-decoration: none;
+    transition: color .3s ease-in-out;
+  }
+
+  a:hover {
+    color: #e08524;
+    transition: color .3s ease-in-out;
+  }
+
+  pre, code, .mono, .name {
+    font-family: "Ubuntu Mono", "Cousine", "DejaVu Sans Mono", monospace;
+  }
+
+  .title .name {
+    font-weight: bold;
+  }
+  .section-title {
+    margin-top: 2em;
+  }
+  .ident {
+    color: #900;
+  }
+
+  code {
+    background: #f9f9f9;
+  } 
+
+  pre {
+    background: #fefefe;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 0 #f3f3f3;
+    margin: 0 30px;
+    padding: 15px 30px;
+  }
+
+  .codehilite {
+    margin: 0 30px 10px 30px;
+  }
+
+    .codehilite pre {
+      margin: 0;
+    }
+    .codehilite .err { background: #ff3300; color: #fff !important; } 
+
+  table#module-list {
+    font-size: 110%;
+  }
+
+    table#module-list tr td:first-child {
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    table#module-list td {
+      vertical-align: top;
+      padding-bottom: 8px;
+    }
+
+      table#module-list td p {
+        margin: 0 0 7px 0;
+      }
+
+  .def {
+    display: table;
+  }
+
+    .def p {
+      display: table-cell;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .def p:first-child {
+      white-space: nowrap;
+    }
+
+    .def p:last-child {
+      width: 100%;
+    }
+
+
+  #index {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+    ul#index .class_name {
+      /* font-size: 110%; */
+      font-weight: bold;
+    }
+    #index ul {
+      margin: 0;
+    }
+
+  .item {
+    margin: 0 0 15px 0;
+  }
+
+    .item .class {
+      margin: 0 0 25px 30px;
+    }
+
+      .item .class ul.class_list {
+        margin: 0 0 20px 0;
+      }
+
+    .item .name {
+      background: #fafafa;
+      margin: 0;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: inline-block;
+      min-width: 40%;
+    }
+      .item .name:hover {
+        background: #f6f6f6;
+      }
+
+    .item .empty_desc {
+      margin: 0 0 5px 0;
+      padding: 0;
+    }
+
+    .item .inheritance {
+      margin: 3px 0 0 30px;
+    }
+
+    .item .inherited {
+      color: #666;
+    }
+
+    .item .desc {
+      padding: 0 8px;
+      margin: 0;
+    }
+
+      .item .desc p {
+        margin: 0 0 10px 0;
+      }
+
+    .source_cont {
+      margin: 0;
+      padding: 0;
+    }
+
+    .source_link a {
+      background: #ffc300;
+      font-weight: 400;
+      font-size: .75em;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 1px 1px 0 #f4b700;
+      
+      padding: 3px 8px;
+      border-radius: 2px;
+      transition: background .3s ease-in-out;
+    }
+      .source_link a:hover {
+        background: #FF7200;
+        text-shadow: none;
+        transition: background .3s ease-in-out;
+      }
+
+    .source {
+      display: none;
+      max-height: 600px;
+      overflow-y: scroll;
+      margin-bottom: 15px;
+    }
+
+      .source .codehilite {
+        margin: 0;
+      }
+
+  .desc h1, .desc h2, .desc h3 {
+    font-size: 100% !important;
+  }
+  .clear {
+    clear: both;
+  }
+
+  @media all and (max-width: 950px) {
+    #sidebar {
+      width: 35%;
+    }
+    #content {
+      width: 65%;
+    }
+  }
+  @media all and (max-width: 650px) {
+    #top {
+      display: none;
+    }
+    #sidebar {
+      float: none;
+      width: auto;
+    }
+    #content {
+      float: none;
+      width: auto;
+      padding: 30px;
+    }
+
+    #index ul {
+      padding: 0;
+      margin-bottom: 15px;
+    }
+    #index ul li {
+      display: inline-block;
+      margin-right: 30px;
+    }
+    #footer {
+      text-align: left;
+    }
+    #footer p {
+      display: block;
+      margin: inherit;
+    }
+  }
+
+  /*****************************/
+
+  </style>
+
+  <style type="text/css">
+  .codehilite .hll { background-color: #ffffcc }
+.codehilite  { background: #f8f8f8; }
+.codehilite .c { color: #408080; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #FF0000 } /* Error */
+.codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666666 } /* Operator */
+.codehilite .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+.codehilite .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #FF0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #0044DD } /* Generic.Traceback */
+.codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+.codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #B00040 } /* Keyword.Type */
+.codehilite .m { color: #666666 } /* Literal.Number */
+.codehilite .s { color: #BA2121 } /* Literal.String */
+.codehilite .na { color: #7D9029 } /* Name.Attribute */
+.codehilite .nb { color: #008000 } /* Name.Builtin */
+.codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #880000 } /* Name.Constant */
+.codehilite .nd { color: #AA22FF } /* Name.Decorator */
+.codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #0000FF } /* Name.Function */
+.codehilite .nl { color: #A0A000 } /* Name.Label */
+.codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #19177C } /* Name.Variable */
+.codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+.codehilite .mf { color: #666666 } /* Literal.Number.Float */
+.codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+.codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+.codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+.codehilite .sa { color: #BA2121 } /* Literal.String.Affix */
+.codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+.codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+.codehilite .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+.codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.codehilite .sx { color: #008000 } /* Literal.String.Other */
+.codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+.codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+.codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+.codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #0000FF } /* Name.Function.Magic */
+.codehilite .vc { color: #19177C } /* Name.Variable.Class */
+.codehilite .vg { color: #19177C } /* Name.Variable.Global */
+.codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+.codehilite .vm { color: #19177C } /* Name.Variable.Magic */
+.codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
+
+  <style type="text/css">
+  
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+  </style>
+
+  <script type="text/javascript">
+  function toggle(id, $link) {
+    $node = document.getElementById(id);
+    if (!$node)
+    return;
+    if (!$node.style.display || $node.style.display == 'none') {
+    $node.style.display = 'block';
+    $link.innerHTML = 'Hide source &nequiv;';
+    } else {
+    $node.style.display = 'none';
+    $link.innerHTML = 'Show source &equiv;';
+    }
+  }
+  </script>
+</head>
+<body>
+<a href="#" id="top">Top</a>
+
+<div id="container">
+    
+  
+  <div id="sidebar">
+    <h1>Index</h1>
+    <ul id="index">
+
+    <li class="set"><h3><a href="#header-functions">Functions</a></h3>
+      
+  <ul>
+    <li class="mono"><a href="#funpy.io.combine">combine</a></li>
+    <li class="mono"><a href="#funpy.io.dedent">dedent</a></li>
+    <li class="mono"><a href="#funpy.io.fill">fill</a></li>
+    <li class="mono"><a href="#funpy.io.glob">glob</a></li>
+    <li class="mono"><a href="#funpy.io.iglob">iglob</a></li>
+    <li class="mono"><a href="#funpy.io.indent">indent</a></li>
+    <li class="mono"><a href="#funpy.io.interact">interact</a></li>
+    <li class="mono"><a href="#funpy.io.lines">lines</a></li>
+    <li class="mono"><a href="#funpy.io.pprint">pprint</a></li>
+    <li class="mono"><a href="#funpy.io.shorten">shorten</a></li>
+    <li class="mono"><a href="#funpy.io.slurp">slurp</a></li>
+    <li class="mono"><a href="#funpy.io.spit">spit</a></li>
+    <li class="mono"><a href="#funpy.io.unbl">unbl</a></li>
+    <li class="mono"><a href="#funpy.io.unlines">unlines</a></li>
+    <li class="mono"><a href="#funpy.io.unnl">unnl</a></li>
+    <li class="mono"><a href="#funpy.io.unwords">unwords</a></li>
+    <li class="mono"><a href="#funpy.io.words">words</a></li>
+    <li class="mono"><a href="#funpy.io.wrap">wrap</a></li>
+  </ul>
+
+    </li>
+
+    <li class="set"><h3><a href="#header-classes">Classes</a></h3>
+      <ul>
+        <li class="mono">
+        <span class="class_name"><a href="#funpy.io.str">Path</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#funpy.io.str">Path</a></span>
+        
+        </li>
+      </ul>
+    </li>
+
+    </ul>
+  </div>
+
+    <article id="content">
+      
+  
+
+  
+
+
+  <header id="section-intro">
+  <h1 class="title"><span class="name">funpy.io</span> module</h1>
+  <p>Input/Output library.</p>
+  
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io" class="source">
+    <div class="codehilite"><pre><span></span><span class="sd">&quot;&quot;&quot;Input/Output library.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">fileinput</span>
+<span class="kn">import</span> <span class="nn">glob</span> <span class="kn">as</span> <span class="nn">Glob</span>
+<span class="kn">import</span> <span class="nn">pprint</span> <span class="kn">as</span> <span class="nn">Print</span>
+<span class="kn">import</span> <span class="nn">textwrap</span>
+
+<span class="c1"># TYPES {{{</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">AnyStr</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Iterator</span>
+
+<span class="n">Path</span> <span class="o">=</span> <span class="nb">str</span>
+<span class="n">Mode</span> <span class="o">=</span> <span class="nb">str</span>
+<span class="c1"># }}}</span>
+<span class="c1"># PATHS {{{</span>
+<span class="n">glob</span> <span class="o">=</span> <span class="n">Glob</span><span class="o">.</span><span class="n">glob</span>
+
+<span class="n">iglob</span> <span class="o">=</span> <span class="n">Glob</span><span class="o">.</span><span class="n">iglob</span>
+<span class="c1"># }}}</span>
+<span class="c1"># INPUTS {{{</span>
+<span class="n">combine</span> <span class="o">=</span> <span class="n">fileinput</span><span class="o">.</span><span class="n">input</span>
+
+
+<span class="k">def</span> <span class="nf">slurp</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="n">Mode</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AnyStr</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Slurp data from path.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">r</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+
+<span class="c1"># }}}</span>
+<span class="c1"># OUTPUTS {{{</span>
+<span class="n">pprint</span> <span class="o">=</span> <span class="n">Print</span><span class="o">.</span><span class="n">pprint</span>
+
+
+<span class="k">def</span> <span class="nf">spit</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="n">AnyStr</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="n">Mode</span> <span class="o">=</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Spit data to path.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>
+        <span class="n">w</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+
+<span class="c1"># }}}</span>
+<span class="c1"># STREAMS {{{</span>
+<span class="k">def</span> <span class="nf">interact</span><span class="p">(</span>
+    <span class="n">f</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">AnyStr</span><span class="p">],</span> <span class="n">AnyStr</span><span class="p">],</span> <span class="n">files</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="n">Mode</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">AnyStr</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Apply f on all line in files.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">combine</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">))</span>
+
+
+<span class="c1"># }}}</span>
+<span class="c1"># STRINGS {{{</span>
+<span class="n">wrap</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span>
+
+<span class="n">fill</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span>
+
+<span class="n">indent</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">indent</span>
+
+<span class="n">dedent</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span>
+
+<span class="n">shorten</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">shorten</span>
+
+
+<span class="k">def</span> <span class="nf">unnl</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Remove new lines from l.</span>
+
+<span class="sd">    &gt;&gt;&gt; list(unnl([]))</span>
+<span class="sd">    []</span>
+<span class="sd">    &gt;&gt;&gt; list(unnl([&#39;hello\\n&#39;, &#39;\\n&#39;, &#39;&#39;, &#39;world&#39;]))</span>
+<span class="sd">    [&#39;hello&#39;, &#39;&#39;, &#39;&#39;, &#39;world&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">unbl</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Remove blank lines from l.</span>
+
+<span class="sd">    &gt;&gt;&gt; list(unbl([]))</span>
+<span class="sd">    []</span>
+<span class="sd">    &gt;&gt;&gt; list(unbl([&#39;hello\\n&#39;, &#39;\\n&#39;, &#39;&#39;, &#39;world&#39;]))</span>
+<span class="sd">    [&#39;hello\\n&#39;, &#39;\\n&#39;, &#39;world&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">words</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Return a list of words from s.</span>
+
+<span class="sd">    &gt;&gt;&gt; list(words(&#39;&#39;))</span>
+<span class="sd">    []</span>
+<span class="sd">    &gt;&gt;&gt; list(words(&#39;hello fp  world    !&#39;))</span>
+<span class="sd">    [&#39;hello&#39;, &#39;fp&#39;, &#39;world&#39;, &#39;!&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">None</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">unwords</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Return joined words from l.</span>
+
+<span class="sd">    &gt;&gt;&gt; unwords([])</span>
+<span class="sd">    &#39;&#39;</span>
+<span class="sd">    &gt;&gt;&gt; unwords([&#39;hello&#39;, &#39;&#39;, &#39;world&#39;])</span>
+<span class="sd">    &#39;hello  world&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">lines</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Return a list of lines from s.</span>
+
+<span class="sd">    &gt;&gt;&gt; list(lines(&#39;&#39;))</span>
+<span class="sd">    []</span>
+<span class="sd">    &gt;&gt;&gt; list(lines(&#39;hello\\r\\n\\nworld&#39;))</span>
+<span class="sd">    [&#39;hello&#39;, &#39;&#39;, &#39;world&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">unlines</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Return joined lines from l.</span>
+
+<span class="sd">    &gt;&gt;&gt; unlines([])</span>
+<span class="sd">    &#39;&#39;</span>
+<span class="sd">    &gt;&gt;&gt; unlines([&#39;hello&#39;, &#39;&#39;, &#39;world&#39;])</span>
+<span class="sd">    &#39;hello\\n\\nworld&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+
+
+<span class="c1"># }}}</span>
+</pre></div>
+
+  </div>
+
+  </header>
+
+  <section id="section-items">
+
+    <h2 class="section-title" id="header-functions">Functions</h2>
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.combine">
+    <p>def <span class="ident">combine</span>(</p><p>files=None, inplace=False, backup=&#39;&#39;, bufsize=0, mode=&#39;r&#39;, openhook=None)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return an instance of the FileInput class, which can be iterated.</p>
+<p>The parameters are passed to the constructor of the FileInput class.
+The returned instance, in addition to being an iterator,
+keeps global state for the functions of this module,.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.combine', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.combine" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">input</span><span class="p">(</span><span class="n">files</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">backup</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">bufsize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+          <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">openhook</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return an instance of the FileInput class, which can be iterated.</span>
+
+<span class="sd">    The parameters are passed to the constructor of the FileInput class.</span>
+<span class="sd">    The returned instance, in addition to being an iterator,</span>
+<span class="sd">    keeps global state for the functions of this module,.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_state</span>
+    <span class="k">if</span> <span class="n">_state</span> <span class="ow">and</span> <span class="n">_state</span><span class="o">.</span><span class="n">_file</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;input() already active&quot;</span><span class="p">)</span>
+    <span class="n">_state</span> <span class="o">=</span> <span class="n">FileInput</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">inplace</span><span class="p">,</span> <span class="n">backup</span><span class="p">,</span> <span class="n">bufsize</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">openhook</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_state</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.dedent">
+    <p>def <span class="ident">dedent</span>(</p><p>text)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Remove any common leading whitespace from every line in <code>text</code>.</p>
+<p>This can be used to make triple-quoted strings line up with the left
+edge of the display, while still presenting them in the source code
+in indented form.</p>
+<p>Note that tabs and spaces are both treated as whitespace, but they
+are not equal: the lines "  hello" and "\thello" are
+considered to have no common leading whitespace.  (This behaviour is
+new in Python 2.5; older versions of this module incorrectly
+expanded tabs before searching for common leading whitespace.)</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.dedent', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.dedent" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">dedent</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Remove any common leading whitespace from every line in `text`.</span>
+
+<span class="sd">    This can be used to make triple-quoted strings line up with the left</span>
+<span class="sd">    edge of the display, while still presenting them in the source code</span>
+<span class="sd">    in indented form.</span>
+
+<span class="sd">    Note that tabs and spaces are both treated as whitespace, but they</span>
+<span class="sd">    are not equal: the lines &quot;  hello&quot; and &quot;\\thello&quot; are</span>
+<span class="sd">    considered to have no common leading whitespace.  (This behaviour is</span>
+<span class="sd">    new in Python 2.5; older versions of this module incorrectly</span>
+<span class="sd">    expanded tabs before searching for common leading whitespace.)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Look for the longest leading string of spaces and tabs common to</span>
+    <span class="c1"># all lines.</span>
+    <span class="n">margin</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">_whitespace_only_re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="n">indents</span> <span class="o">=</span> <span class="n">_leading_whitespace_re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">indent</span> <span class="ow">in</span> <span class="n">indents</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">margin</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">margin</span> <span class="o">=</span> <span class="n">indent</span>
+
+        <span class="c1"># Current line more deeply indented than previous winner:</span>
+        <span class="c1"># no change (previous winner is still on top).</span>
+        <span class="k">elif</span> <span class="n">indent</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">margin</span><span class="p">):</span>
+            <span class="k">pass</span>
+
+        <span class="c1"># Current line consistent with and no deeper than previous winner:</span>
+        <span class="c1"># it&#39;s the new winner.</span>
+        <span class="k">elif</span> <span class="n">margin</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">indent</span><span class="p">):</span>
+            <span class="n">margin</span> <span class="o">=</span> <span class="n">indent</span>
+
+        <span class="c1"># Find the largest common whitespace between current line and previous</span>
+        <span class="c1"># winner.</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">margin</span><span class="p">,</span> <span class="n">indent</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">y</span><span class="p">:</span>
+                    <span class="n">margin</span> <span class="o">=</span> <span class="n">margin</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
+                    <span class="k">break</span>
+
+    <span class="c1"># sanity check (testing/debugging only)</span>
+    <span class="k">if</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">margin</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
+            <span class="k">assert</span> <span class="ow">not</span> <span class="n">line</span> <span class="ow">or</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">margin</span><span class="p">),</span> \
+                   <span class="s2">&quot;line = </span><span class="si">%r</span><span class="s2">, margin = </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">margin</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">margin</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?m)^&#39;</span> <span class="o">+</span> <span class="n">margin</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">text</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.fill">
+    <p>def <span class="ident">fill</span>(</p><p>text, width=70, **kwargs)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Fill a single paragraph of text, returning a new string.</p>
+<p>Reformat the single paragraph in 'text' to fit in lines of no more
+than 'width' columns, and return a new string containing the entire
+wrapped paragraph.  As with wrap(), tabs are expanded and other
+whitespace characters converted to space.  See TextWrapper class for
+available keyword args to customize wrapping behaviour.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.fill', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.fill" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">fill</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Fill a single paragraph of text, returning a new string.</span>
+
+<span class="sd">    Reformat the single paragraph in &#39;text&#39; to fit in lines of no more</span>
+<span class="sd">    than &#39;width&#39; columns, and return a new string containing the entire</span>
+<span class="sd">    wrapped paragraph.  As with wrap(), tabs are expanded and other</span>
+<span class="sd">    whitespace characters converted to space.  See TextWrapper class for</span>
+<span class="sd">    available keyword args to customize wrapping behaviour.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">TextWrapper</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">w</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.glob">
+    <p>def <span class="ident">glob</span>(</p><p>pathname)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a list of paths matching a pathname pattern.</p>
+<p>The pattern may contain simple shell-style wildcards a la
+fnmatch. However, unlike fnmatch, filenames starting with a
+dot are special cases that are not matched by '*' and '?'
+patterns.</p>
+<p>If recursive is true, the pattern '**' will match any files and
+zero or more directories and subdirectories.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.glob', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.glob" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">glob</span><span class="p">(</span><span class="n">pathname</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a list of paths matching a pathname pattern.</span>
+
+<span class="sd">    The pattern may contain simple shell-style wildcards a la</span>
+<span class="sd">    fnmatch. However, unlike fnmatch, filenames starting with a</span>
+<span class="sd">    dot are special cases that are not matched by &#39;*&#39; and &#39;?&#39;</span>
+<span class="sd">    patterns.</span>
+
+<span class="sd">    If recursive is true, the pattern &#39;**&#39; will match any files and</span>
+<span class="sd">    zero or more directories and subdirectories.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">iglob</span><span class="p">(</span><span class="n">pathname</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="n">recursive</span><span class="p">))</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.iglob">
+    <p>def <span class="ident">iglob</span>(</p><p>pathname)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return an iterator which yields the paths matching a pathname pattern.</p>
+<p>The pattern may contain simple shell-style wildcards a la
+fnmatch. However, unlike fnmatch, filenames starting with a
+dot are special cases that are not matched by '*' and '?'
+patterns.</p>
+<p>If recursive is true, the pattern '**' will match any files and
+zero or more directories and subdirectories.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.iglob', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.iglob" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">iglob</span><span class="p">(</span><span class="n">pathname</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return an iterator which yields the paths matching a pathname pattern.</span>
+
+<span class="sd">    The pattern may contain simple shell-style wildcards a la</span>
+<span class="sd">    fnmatch. However, unlike fnmatch, filenames starting with a</span>
+<span class="sd">    dot are special cases that are not matched by &#39;*&#39; and &#39;?&#39;</span>
+<span class="sd">    patterns.</span>
+
+<span class="sd">    If recursive is true, the pattern &#39;**&#39; will match any files and</span>
+<span class="sd">    zero or more directories and subdirectories.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">it</span> <span class="o">=</span> <span class="n">_iglob</span><span class="p">(</span><span class="n">pathname</span><span class="p">,</span> <span class="n">recursive</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">recursive</span> <span class="ow">and</span> <span class="n">_isrecursive</span><span class="p">(</span><span class="n">pathname</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>  <span class="c1"># skip empty string</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="n">s</span>
+    <span class="k">return</span> <span class="n">it</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.indent">
+    <p>def <span class="ident">indent</span>(</p><p>text, prefix, predicate=None)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Adds 'prefix' to the beginning of selected lines in 'text'.</p>
+<p>If 'predicate' is provided, 'prefix' will only be added to the lines
+where 'predicate(line)' is True. If 'predicate' is not provided,
+it will default to adding 'prefix' to all non-empty lines that do not
+consist solely of whitespace characters.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.indent', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.indent" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">indent</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Adds &#39;prefix&#39; to the beginning of selected lines in &#39;text&#39;.</span>
+
+<span class="sd">    If &#39;predicate&#39; is provided, &#39;prefix&#39; will only be added to the lines</span>
+<span class="sd">    where &#39;predicate(line)&#39; is True. If &#39;predicate&#39; is not provided,</span>
+<span class="sd">    it will default to adding &#39;prefix&#39; to all non-empty lines that do not</span>
+<span class="sd">    consist solely of whitespace characters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">predicate</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">def</span> <span class="nf">predicate</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">prefixed_lines</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(</span><span class="bp">True</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="p">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="n">line</span> <span class="k">if</span> <span class="n">predicate</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">else</span> <span class="n">line</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">prefixed_lines</span><span class="p">())</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.interact">
+    <p>def <span class="ident">interact</span>(</p><p>f, files=None, mode=&#39;r&#39;)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Apply f on all line in files.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.interact', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.interact" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">interact</span><span class="p">(</span>
+    <span class="n">f</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">AnyStr</span><span class="p">],</span> <span class="n">AnyStr</span><span class="p">],</span> <span class="n">files</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="n">Mode</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">AnyStr</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Apply f on all line in files.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">combine</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">))</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.lines">
+    <p>def <span class="ident">lines</span>(</p><p>s)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a list of lines from s.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>list(lines(''))
+[]
+list(lines('hello\r\n\nworld'))
+['hello', '', 'world']</p>
+</blockquote>
+</blockquote>
+</blockquote></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.lines', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.lines" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">lines</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Return a list of lines from s.</span>
+
+<span class="sd">    &gt;&gt;&gt; list(lines(&#39;&#39;))</span>
+<span class="sd">    []</span>
+<span class="sd">    &gt;&gt;&gt; list(lines(&#39;hello\\r\\n\\nworld&#39;))</span>
+<span class="sd">    [&#39;hello&#39;, &#39;&#39;, &#39;world&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.pprint">
+    <p>def <span class="ident">pprint</span>(</p><p>object, stream=None, indent=1, width=80, depth=None)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Pretty-print a Python object to a stream [default is sys.stdout].</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.pprint', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.pprint" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">pprint</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+           <span class="n">compact</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Pretty-print a Python object to a stream [default is sys.stdout].&quot;&quot;&quot;</span>
+    <span class="n">printer</span> <span class="o">=</span> <span class="n">PrettyPrinter</span><span class="p">(</span>
+        <span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="n">depth</span><span class="p">,</span>
+        <span class="n">compact</span><span class="o">=</span><span class="n">compact</span><span class="p">)</span>
+    <span class="n">printer</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.shorten">
+    <p>def <span class="ident">shorten</span>(</p><p>text, width, **kwargs)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Collapse and truncate the given text to fit in the given width.</p>
+<p>The text first has its whitespace collapsed.  If it then fits in
+the <em>width</em>, it is returned as is.  Otherwise, as many words
+as possible are joined and then the placeholder is appended::</p>
+<div class="codehilite"><pre><span></span>&gt;&gt;&gt; textwrap.shorten(&quot;Hello  world!&quot;, width=12)
+&#39;Hello world!&#39;
+&gt;&gt;&gt; textwrap.shorten(&quot;Hello  world!&quot;, width=11)
+&#39;Hello [...]&#39;
+</pre></div></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.shorten', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.shorten" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">shorten</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Collapse and truncate the given text to fit in the given width.</span>
+
+<span class="sd">    The text first has its whitespace collapsed.  If it then fits in</span>
+<span class="sd">    the *width*, it is returned as is.  Otherwise, as many words</span>
+<span class="sd">    as possible are joined and then the placeholder is appended::</span>
+
+<span class="sd">        &gt;&gt;&gt; textwrap.shorten(&quot;Hello  world!&quot;, width=12)</span>
+<span class="sd">        &#39;Hello world!&#39;</span>
+<span class="sd">        &gt;&gt;&gt; textwrap.shorten(&quot;Hello  world!&quot;, width=11)</span>
+<span class="sd">        &#39;Hello [...]&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">TextWrapper</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">max_lines</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">w</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.slurp">
+    <p>def <span class="ident">slurp</span>(</p><p>path, mode=&#39;r&#39;)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Slurp data from path.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.slurp', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.slurp" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">slurp</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="n">Mode</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AnyStr</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Slurp data from path.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">r</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.spit">
+    <p>def <span class="ident">spit</span>(</p><p>path, s, mode=&#39;w&#39;)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Spit data to path.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.spit', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.spit" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">spit</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="n">AnyStr</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="n">Mode</span> <span class="o">=</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Spit data to path.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>
+        <span class="n">w</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.unbl">
+    <p>def <span class="ident">unbl</span>(</p><p>l)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Remove blank lines from l.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>list(unbl([]))
+[]
+list(unbl(['hello\n', '\n', '', 'world']))
+['hello\n', '\n', 'world']</p>
+</blockquote>
+</blockquote>
+</blockquote></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.unbl', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.unbl" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">unbl</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Remove blank lines from l.</span>
+
+<span class="sd">    &gt;&gt;&gt; list(unbl([]))</span>
+<span class="sd">    []</span>
+<span class="sd">    &gt;&gt;&gt; list(unbl([&#39;hello\\n&#39;, &#39;\\n&#39;, &#39;&#39;, &#39;world&#39;]))</span>
+<span class="sd">    [&#39;hello\\n&#39;, &#39;\\n&#39;, &#39;world&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.unlines">
+    <p>def <span class="ident">unlines</span>(</p><p>l)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return joined lines from l.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>unlines([])
+''
+unlines(['hello', '', 'world'])
+'hello\n\nworld'</p>
+</blockquote>
+</blockquote>
+</blockquote></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.unlines', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.unlines" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">unlines</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Return joined lines from l.</span>
+
+<span class="sd">    &gt;&gt;&gt; unlines([])</span>
+<span class="sd">    &#39;&#39;</span>
+<span class="sd">    &gt;&gt;&gt; unlines([&#39;hello&#39;, &#39;&#39;, &#39;world&#39;])</span>
+<span class="sd">    &#39;hello\\n\\nworld&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.unnl">
+    <p>def <span class="ident">unnl</span>(</p><p>l)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Remove new lines from l.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>list(unnl([]))
+[]
+list(unnl(['hello\n', '\n', '', 'world']))
+['hello', '', '', 'world']</p>
+</blockquote>
+</blockquote>
+</blockquote></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.unnl', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.unnl" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">unnl</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Remove new lines from l.</span>
+
+<span class="sd">    &gt;&gt;&gt; list(unnl([]))</span>
+<span class="sd">    []</span>
+<span class="sd">    &gt;&gt;&gt; list(unnl([&#39;hello\\n&#39;, &#39;\\n&#39;, &#39;&#39;, &#39;world&#39;]))</span>
+<span class="sd">    [&#39;hello&#39;, &#39;&#39;, &#39;&#39;, &#39;world&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span><span class="p">)</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.unwords">
+    <p>def <span class="ident">unwords</span>(</p><p>l)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return joined words from l.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>unwords([])
+''
+unwords(['hello', '', 'world'])
+'hello  world'</p>
+</blockquote>
+</blockquote>
+</blockquote></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.unwords', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.unwords" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">unwords</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Return joined words from l.</span>
+
+<span class="sd">    &gt;&gt;&gt; unwords([])</span>
+<span class="sd">    &#39;&#39;</span>
+<span class="sd">    &gt;&gt;&gt; unwords([&#39;hello&#39;, &#39;&#39;, &#39;world&#39;])</span>
+<span class="sd">    &#39;hello  world&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.words">
+    <p>def <span class="ident">words</span>(</p><p>s)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a list of words from s.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>list(words(''))
+[]
+list(words('hello fp  world    !'))
+['hello', 'fp', 'world', '!']</p>
+</blockquote>
+</blockquote>
+</blockquote></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.words', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.words" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">words</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Return a list of words from s.</span>
+
+<span class="sd">    &gt;&gt;&gt; list(words(&#39;&#39;))</span>
+<span class="sd">    []</span>
+<span class="sd">    &gt;&gt;&gt; list(words(&#39;hello fp  world    !&#39;))</span>
+<span class="sd">    [&#39;hello&#39;, &#39;fp&#39;, &#39;world&#39;, &#39;!&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">None</span><span class="p">))</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="funpy.io.wrap">
+    <p>def <span class="ident">wrap</span>(</p><p>text, width=70, **kwargs)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Wrap a single paragraph of text, returning a list of wrapped lines.</p>
+<p>Reformat the single paragraph in 'text' so it fits in lines of no
+more than 'width' columns, and return a list of wrapped lines.  By
+default, tabs in 'text' are expanded with string.expandtabs(), and
+all other whitespace characters (including newline) are converted to
+space.  See TextWrapper class for available keyword args to customize
+wrapping behaviour.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-funpy.io.wrap', this);">Show source &equiv;</a></p>
+  <div id="source-funpy.io.wrap" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Wrap a single paragraph of text, returning a list of wrapped lines.</span>
+
+<span class="sd">    Reformat the single paragraph in &#39;text&#39; so it fits in lines of no</span>
+<span class="sd">    more than &#39;width&#39; columns, and return a list of wrapped lines.  By</span>
+<span class="sd">    default, tabs in &#39;text&#39; are expanded with string.expandtabs(), and</span>
+<span class="sd">    all other whitespace characters (including newline) are converted to</span>
+<span class="sd">    space.  See TextWrapper class for available keyword args to customize</span>
+<span class="sd">    wrapping behaviour.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">TextWrapper</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">w</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+
+    <h2 class="section-title" id="header-classes">Classes</h2>
+      
+      <div class="item">
+      <p id="funpy.io.str" class="name">class <span class="ident">Mode</span></p>
+      
+  
+    <div class="desc"><p>str(object='') -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.<strong>str</strong>() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#funpy.io.str">Path</a></li>
+          <li>builtins.object</li>
+          </ul>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="funpy.io.str" class="name">class <span class="ident">Path</span></p>
+      
+  
+    <div class="desc"><p>str(object='') -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.<strong>str</strong>() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.</p></div>
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#funpy.io.str">Path</a></li>
+          <li>builtins.object</li>
+          </ul>
+      </div>
+      </div>
+
+  </section>
+
+    </article>
+  <div class="clear"> </div>
+  <footer id="footer">
+    <p>
+      Documentation generated by
+      <a href="https://github.com/BurntSushi/pdoc">pdoc 0.3.2</a>
+    </p>
+
+    <p>pdoc is in the public domain with the
+      <a href="http://unlicense.org">UNLICENSE</a></p>
+
+    <p>Design by <a href="http://nadh.in">Kailash Nadh</a></p>
+  </footer>
+</div>
+</body>
+</html>

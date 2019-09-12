@@ -40,9 +40,7 @@ def spit(path: Path, s: AnyStr, mode: Mode = "w") -> None:
 # }}}
 # STREAMS {{{
 def interact(
-    f: Callable[[AnyStr], AnyStr],
-    files: Iterable[Path] = None,
-    mode: Mode = "r",
+    f: Callable[[AnyStr], AnyStr], files: Iterable[Path] = None, mode: Mode = "r"
 ) -> Iterator[AnyStr]:
     """Apply f on all line in files."""
     return map(f, combine(files, mode=mode))

@@ -5,15 +5,7 @@ import functools
 import itertools
 
 # TYPES {{{
-from typing import (
-    Any,
-    Callable,
-    Container,
-    Iterable,
-    Iterator,
-    Optional,
-    Tuple,
-)
+from typing import Any, Callable, Container, Iterable, Iterator, Optional, Tuple
 
 from funpy import fn, op
 
@@ -177,9 +169,7 @@ def chunkall(l: Iterable, n: int) -> Iterator[tuple]:
         yield tuple(chunking)
 
 
-def grouped(
-    l: Iterable, f: Callable = fn.ident
-) -> Iterator[Tuple[Any, tuple]]:
+def grouped(l: Iterable, f: Callable = fn.ident) -> Iterator[Tuple[Any, tuple]]:
     """Group items of l based on f.
 
     >>> list(grouped((1, 2, 3, 1, 2, 3, 1, 2)))
